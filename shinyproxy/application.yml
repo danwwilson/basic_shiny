@@ -2,6 +2,7 @@ proxy:
   title: Basic Shiny App
   landing-page: app/dashboard
   port: 8080
+  container-log-path: /container-logs
   authentication: simple
   admin-groups: admins
   users:
@@ -12,14 +13,19 @@ proxy:
     password: password
   docker:
       internal-networking: true
+      container-network: tdc-net
   specs:
   - id: dashboard
     display-name: Basic Shiny App
     description: Application which demonstrates the basics of a Shiny app
-    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapps')"] 
+    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapp')"] 
     container-image: thedatacollective/basic_shiny
-    container-network: tdc-net
+    container-network: "${proxy.docker.container-network}"
 
 logging:
   file:
-    shinyproxy.log
+    /log/shinyproxy.log
+    
+server:
+  servlet:
+    context-path:  /

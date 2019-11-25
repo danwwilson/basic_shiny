@@ -1,0 +1,12 @@
+version: "3.6"
+
+services:
+
+  shinyproxy:
+    build: ./shinyproxy
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./shinyproxy-logs/server:/log
+      - ./shinyproxy-logs/container:/container-logs
+    ports:
+      - 8080:8080
