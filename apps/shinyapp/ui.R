@@ -7,7 +7,6 @@ ui <- fluidPage(
   titlePanel("Hello world"),
   textOutput("user"),
   br(),
-  tableOutput("vars"),
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(

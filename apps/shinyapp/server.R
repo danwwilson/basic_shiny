@@ -15,10 +15,6 @@ server <- function(input, output) {
   output$user <- renderText({
     paste("Welcome", Sys.getenv(c("SHINYPROXY_USERNAME")))
   })
-  
-  output$vars <- renderTable({
-    df <- Sys.getenv()
-    data.frame(field = names(df), values = as.vector(df))
-  })
+
 }
 
