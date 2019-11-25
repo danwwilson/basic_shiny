@@ -16,7 +16,7 @@ proxy:
   - id: dashboard
     display-name: Basic Shiny App
     description: Application which demonstrates the basics of a Shiny app
-    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapps', port = 3838)"] 
+    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapps')"] 
     container-image: thedatacollective/basic_shiny
     container-network: tdc-net
 
