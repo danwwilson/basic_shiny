@@ -10,3 +10,9 @@ services:
       - ./shinyproxy-logs/container:/container-logs
     ports:
       - 8080:8080
+    networks:
+      - tdc-net
+
+networks:
+  tdc-net:
+    name: tdc-net
